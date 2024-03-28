@@ -6,26 +6,20 @@ mkdir ../lig_dropped
 mkdir ../lig_error
 mkdir ../lig_failed
 
-# Move ligands to corresponding folders and fix the unprepared ligands
-for i in $(seq 0 39)  # Change the range according to the total number of ligands
-do 
-    if test -s "lig_${i}.smi"
-    then
+for i in $(seq 0 39); do
+    if test -s "lig_${i}.smi"; then
         mv "lig_${i}.smi" ../lig_input
-        if test -s "lig_${i}.sdf"
-        then
+        if test -s "lig_${i}.sdf"; then
             rm -rf "lig_${i}_tmp"
             mv "lig_${i}.sdf" ../lig_prepared
-            if test -s "lig_${i}-dropped.smi"
-            then
+            if test -s "lig_${i}-dropped.smi"; then
                 echo "lig_${i} has dropped ligands!"
                 mv "lig_${i}-dropped.smi" ../lig_dropped
             fi
-            for file in "in_lig_${i}"-*.smi
-            do
+            for file in "in_lig_${i}"-*.smi; do
                 if [[ -s "$file" ]]; then
                     echo "lig_${i} has failed ligands!"
-                    cat "in_lig_${i}"-*.smi >> "in_lig_${i}.smi"
+                    cat "in_lig_${i}"-*.smi >>"in_lig_${i}.smi"
                     mv "in_lig_${i}.smi" ../lig_failed
                     break
                 fi
@@ -40,8 +34,4 @@ done
 cd ..
 mv lig lig_log
 mv lig_input lig
-cd lig_log
-
-rm lig_test.sh
-rm lig_test.log
-rm lig_postprocessing.sh
+cd lig_log || exit

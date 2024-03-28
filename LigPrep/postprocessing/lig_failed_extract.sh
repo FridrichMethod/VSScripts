@@ -30,4 +30,3 @@ done
 ((i--))
 
 echo "${j}/${i} subjobs in ${lig} has been processed successfully"
-rm lig_failed_extract.sh

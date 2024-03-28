@@ -33,6 +33,4 @@ PRECISION   SP
 EOF
 echo "Successfully created input file"
 
-echo "Glide: Starting for $SLURM_JOB_NAME #$SLURM_ARRAY_TASK_ID"
-srun glide "lig_${n}.in" -adjust -max_retries 4 -HOST "$HOSTNAME:$SLURM_CPUS_PER_TASK" -WAIT -TMPDIR "lig_${n}_tmp" -NSTRUCTS 10 -RESTART
-echo "Glide: Completed for $SLURM_JOB_NAME #$SLURM_ARRAY_TASK_ID"
+srun glide "lig_${n}.in" -adjust -max_retries 4 -HOST "$HOSTNAME:$SLURM_CPUS_PER_TASK" -WAIT -TMPDIR "lig_${n}_tmp" -NSTRUCTS 40 -RESTART

@@ -18,6 +18,4 @@ module load chemistry
 module load schrodinger/2022-3
 echo "Successfully loaded schrodinger/2022-3"
 
-echo "Prime: Starting for $SLURM_JOB_NAME #$SLURM_ARRAY_TASK_ID"
 srun prime_mmgbsa "lig_${n}.maegz" -report_prime_log yes -csv_output yes -out_type COMPLEX -flexdist 5.0 -job_type REAL_MIN -num_output_struct 1 -prime_opt OPLS_VERSION=S-OPLS -HOST "$HOSTNAME:$SLURM_CPUS_PER_TASK" -WAIT -TMPDIR "lig_${n}_tmp" -NJOBS 120 -RETRIES 6
-echo "Prime: Completed for $SLURM_JOB_NAME #$SLURM_ARRAY_TASK_ID"

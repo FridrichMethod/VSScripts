@@ -16,4 +16,3 @@ module load schrodinger/2022-3
 echo "Successfully loaded schrodinger/2022-3"
 
 srun "$SCHRODINGER"/utilities/maesubset mmgbsa.maegz -title_list_file "title.txt" -o "manual_selection.maegz"
-echo "Successfully extracted mmgbsa poses"

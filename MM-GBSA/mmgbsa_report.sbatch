@@ -16,4 +16,3 @@ module load schrodinger/2022-3
 echo "Successfully loaded schrodinger/2022-3"
 
 srun "$SCHRODINGER"/utilities/glide_sort mmgbsa_maegz/* -o "mmgbsa.maegz" -r "mmgbsa.txt" -use_prop r_psp_MMGBSA_dG_Bind -maxsize 0
-echo "Successfully report scores!"

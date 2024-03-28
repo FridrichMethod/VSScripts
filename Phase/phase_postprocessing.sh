@@ -4,10 +4,8 @@ mkdir ../phase_input
 mkdir ../phase_maegz
 mkdir ../phase_error
 
-for i in $(seq 0 15)  # Change the range according to the total number of ligands
-do 
-    if test -s "phase_${i}-hits.maegz"
-    then
+for i in $(seq 0 15); do
+    if test -s "phase_${i}-hits.maegz"; then
         rm -rf "lig_${i}_tmp"
         mv "phase_${i}-hits.maegz" ../phase_maegz
     else
@@ -21,6 +19,4 @@ done
 cd ..
 mv lig phase_log
 mv phase_input lig
-cd phase_log
-
-rm phase_postprocessing.sh
+cd phase_log || exit
