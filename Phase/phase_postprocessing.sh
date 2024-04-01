@@ -13,7 +13,7 @@ for i in $(seq 0 15); do
         mv "lig_${i}_tmp" ../phase_error
     fi
     mv "lig_${i}.maegz" ../phase_input
-    mv -- *.phypo ../phase_input
+    mv ./*.phypo ../phase_input
 done
 
 cd ..
