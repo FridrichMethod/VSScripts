@@ -9,7 +9,7 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=12
 #SBATCH --mem-per-cpu=12G
-#SBATCH --time=1-00:00:00
+#SBATCH --time=2-00:00:00
 
 module load chemistry
 module load schrodinger/2022-3
