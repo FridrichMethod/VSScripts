@@ -7,7 +7,6 @@ mkdir ../mmgbsa_error
 
 for i in $(seq 0 15); do
     if test -s "lig_${i}-out.maegz"; then
-        rm -rf "lig_${i}_tmp"
         mv "lig_${i}-out.maegz" ../mmgbsa_maegz
         mv "lig_${i}-out.csv" ../mmgbsa_csv
     else
